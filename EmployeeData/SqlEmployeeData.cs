@@ -27,12 +27,21 @@ namespace Employee_RegistrationCRUD.EmployeeData
 
         public void DeleteEmployee(Employee employee)
         {
-            throw new NotImplementedException();
+            _employeeContext.Employees.Remove(employee);
+            _employeeContext.SaveChanges();
         }
 
         public Employee EditEmployee(Employee employee)
         {
-            throw new NotImplementedException();
+            var existingEmployee = _employeeContext.Employees.Find(employee.Id);
+            if (existingEmployee != null)
+            {
+                existingEmployee.FirstName = employee.FirstName;
+                _employeeContext.Employees.Update(employee);
+                _employeeContext.SaveChanges();
+
+            }
+            return employee;
         }
 
         public List<Employee> GetEmployee()

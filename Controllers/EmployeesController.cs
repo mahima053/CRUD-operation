@@ -43,5 +43,33 @@ namespace Employee_RegistrationCRUD.Controllers
             _employeeData.AddEmployee(employee);
             return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + employee.Id, value: employee);
         }
+        [HttpDelete("{Id}")]
+        //Route("api/[Employees]/{Id}")]
+        public IActionResult DeleteEmployee(Guid Id)
+        {
+            var employee = _employeeData.GetEmployee(Id);
+
+            if (employee != null)
+            {
+                _employeeData.DeleteEmployee(employee);
+                return Ok();
+
+            }
+            return NotFound($"employee with id: (Id) was not found");
+        }
+        [HttpPut("{Id}")]
+        // [Route("api/[Employees]/{Id}")]
+
+        public IActionResult EditEmployee(Guid Id, Employee employee)
+        {
+            var existingemployee = _employeeData.GetEmployee(Id);
+
+            if (employee != null)
+            {
+                _employeeData.EditEmployee(employee);
+                return Ok();
+            }
+            return NotFound($"employee with id: (Id)was not found");
+        }
     }
 }
