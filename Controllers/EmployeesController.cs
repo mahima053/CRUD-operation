@@ -23,8 +23,8 @@ namespace Employee_RegistrationCRUD.Controllers
             return Ok(_employeeData.GetEmployee());
         }
 
-       [HttpGet]
-        [Route("api/[controller]")]
+       [HttpGet("{Id}")]
+        //[Route("api/[controller]")]
 
         public IActionResult GetEmployee(Guid Id)
         {
@@ -57,19 +57,20 @@ namespace Employee_RegistrationCRUD.Controllers
             }
             return NotFound($"employee with id: (Id) was not found");
         }
-        [HttpPut("{Id}")]
+        [HttpPatch("{Id}")]
         // [Route("api/[Employees]/{Id}")]
 
         public IActionResult EditEmployee(Guid Id, Employee employee)
         {
             var existingemployee = _employeeData.GetEmployee(Id);
 
-            if (employee != null)
+            if (existingemployee != null)
             {
+                employee.Id = existingemployee.Id;
                 _employeeData.EditEmployee(employee);
-                return Ok();
+                
             }
-            return NotFound($"employee with id: (Id)was not found");
+            return Ok(employee);
         }
     }
 }

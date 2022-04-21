@@ -37,7 +37,7 @@ namespace Employee_RegistrationCRUD.EmployeeData
             if (existingEmployee != null)
             {
                 existingEmployee.FirstName = employee.FirstName;
-                _employeeContext.Employees.Update(employee);
+                _employeeContext.Employees.Update(existingEmployee);
                 _employeeContext.SaveChanges();
 
             }
