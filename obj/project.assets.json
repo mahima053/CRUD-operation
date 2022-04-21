@@ -5848,11 +5848,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\thinksysuser\\source\\repos\\Employee_RegistrationCRUD\\Employee_RegistrationCRUD\\Employee_RegistrationCRUD.csproj",
+      "projectUniqueName": "C:\\Users\\thinksysuser\\Desktop\\Employee\\CRUD-operation\\Employee_RegistrationCRUD.csproj",
       "projectName": "Employee_RegistrationCRUD",
-      "projectPath": "C:\\Users\\thinksysuser\\source\\repos\\Employee_RegistrationCRUD\\Employee_RegistrationCRUD\\Employee_RegistrationCRUD.csproj",
+      "projectPath": "C:\\Users\\thinksysuser\\Desktop\\Employee\\CRUD-operation\\Employee_RegistrationCRUD.csproj",
       "packagesPath": "C:\\Users\\thinksysuser\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\thinksysuser\\source\\repos\\Employee_RegistrationCRUD\\Employee_RegistrationCRUD\\obj\\",
+      "outputPath": "C:\\Users\\thinksysuser\\Desktop\\Employee\\CRUD-operation\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\thinksysuser\\AppData\\Roaming\\NuGet\\NuGet.Config",
