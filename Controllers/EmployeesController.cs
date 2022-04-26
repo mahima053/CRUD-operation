@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Employee_RegistrationCRUD.EmployeeData;
+using Employee_RegistrationCRUD.Mediator;
 using Employee_RegistrationCRUD.Models;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Employee_RegistrationCRUD.Controllers
@@ -9,14 +13,41 @@ namespace Employee_RegistrationCRUD.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        private IEmployeeData _employeeData;
-        public EmployeesController(IEmployeeData employeeData)
-        {
-            _employeeData = employeeData;
+       /*  private IEmployeeRepository _employeeData;
 
-        }
+        public EmployeesController(IEmployeeRepository employeeData)
+          {
+              _employeeData = employeeData;
+
+          }*/
+        private readonly IMediator _mediator;
+        public EmployeesController(IMediator mediator) => _mediator = mediator;
 
         [HttpGet]
+        public async Task<IEnumerable<Employee>> GetEmp() => await _mediator.Send(new GetEmp.Query());
+
+
+        [HttpGet("{id}")]
+        public async Task<Employee> GetEmp(Guid id) => await _mediator.Send(new GetEmpById.Query { Id = id });
+
+
+        [HttpPost]
+        public async Task<ActionResult> CreateEmployee([FromBody] Add_Employee.Command command)
+        {
+            var createdEmpId = await _mediator.Send(command);
+            return CreatedAtAction(nameof(GetEmp), new { id = createdEmpId }, null);
+        }
+
+
+        [HttpDelete("{Id}")]
+
+        public async Task<ActionResult> DeleteEmployee(Guid id)
+        {
+            await _mediator.Send(new DeleteEmployee.Command{Id = id});
+            return NoContent();
+        }
+
+       /* [HttpGet]
 
         public IActionResult GetEmployee()
         {
@@ -71,6 +102,7 @@ namespace Employee_RegistrationCRUD.Controllers
                 
             }
             return Ok(employee);
-        }
+        }*/
+        
     }
 }

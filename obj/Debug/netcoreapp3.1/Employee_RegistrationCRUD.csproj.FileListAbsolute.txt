@@ -71,8 +71,6 @@ C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\Em
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\Employee_RegistrationCRUD.runtimeconfig.dev.json
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\Employee_RegistrationCRUD.dll
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\Employee_RegistrationCRUD.pdb
-C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\FluentMigrator.dll
-C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\FluentMigrator.Abstractions.dll
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
@@ -105,7 +103,6 @@ C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\Sy
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
-C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\de-DE\FluentMigrator.Abstractions.resources.dll
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
@@ -114,7 +111,6 @@ C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\ru
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\obj\Debug\netcoreapp3.1\Employee_RegistrationCRUD.csproj.AssemblyReference.cache
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\obj\Debug\netcoreapp3.1\Employee_RegistrationCRUD.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\obj\Debug\netcoreapp3.1\Employee_RegistrationCRUD.AssemblyInfoInputs.cache
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\obj\Debug\netcoreapp3.1\Employee_RegistrationCRUD.AssemblyInfo.cs
@@ -128,3 +124,10 @@ C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\obj\Debug\netcoreapp3.1\Em
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\obj\Debug\netcoreapp3.1\Employee_RegistrationCRUD.dll
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\obj\Debug\netcoreapp3.1\Employee_RegistrationCRUD.pdb
 C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\obj\Debug\netcoreapp3.1\Employee_RegistrationCRUD.genruntimeconfig.cache
+C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\FluentValidation.dll
+C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\MediatR.dll
+C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
+C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\obj\Debug\netcoreapp3.1\Employee_RegistrationCRUD.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\thinksysuser\Desktop\Employee\CRUD-operation\obj\Debug\netcoreapp3.1\Employee_RegistrationCRUD.csproj.AssemblyReference.cache

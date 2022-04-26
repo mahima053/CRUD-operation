@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Employee_RegistrationCRUD.Models;
-using FluentMigrator;
 
 
 namespace Employee_RegistrationCRUD.EmployeeData
 {
-    public class SqlEmployeeData : IEmployeeData
+    public class EmployeeRepository : IEmployeeRepository
     {
         private EmployeeContext _employeeContext;
 
-        public SqlEmployeeData(EmployeeContext employeeContext)
+        public EmployeeRepository(EmployeeContext employeeContext)
         {
             _employeeContext = employeeContext;
 
@@ -37,6 +35,7 @@ namespace Employee_RegistrationCRUD.EmployeeData
             if (existingEmployee != null)
             {
                 existingEmployee.FirstName = employee.FirstName;
+                existingEmployee.LastName = employee.LastName;
                 _employeeContext.Employees.Update(existingEmployee);
                 _employeeContext.SaveChanges();
 

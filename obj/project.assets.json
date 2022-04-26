@@ -2,36 +2,64 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "FluentMigrator/3.1.1": {
+      "FluentValidation/9.2.2": {
         "type": "package",
-        "dependencies": {
-          "FluentMigrator.Abstractions": "3.1.1",
-          "Microsoft.Extensions.DependencyInjection": "2.0.0",
-          "Microsoft.Extensions.Options": "2.0.1"
-        },
         "compile": {
-          "lib/netstandard2.0/FluentMigrator.dll": {}
+          "lib/netstandard2.0/FluentValidation.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/FluentMigrator.dll": {}
+          "lib/netstandard2.0/FluentValidation.dll": {}
         }
       },
-      "FluentMigrator.Abstractions/3.1.1": {
+      "FluentValidation.AspNetCore/9.0.1": {
         "type": "package",
         "dependencies": {
-          "System.ComponentModel.Annotations": "4.4.1",
-          "System.ValueTuple": "4.4.0"
+          "FluentValidation": "9.0.1",
+          "FluentValidation.DependencyInjectionExtensions": "9.0.1"
         },
         "compile": {
-          "lib/netstandard2.0/FluentMigrator.Abstractions.dll": {}
+          "lib/netcoreapp3.1/FluentValidation.AspNetCore.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/FluentMigrator.Abstractions.dll": {}
+          "lib/netcoreapp3.1/FluentValidation.AspNetCore.dll": {}
         },
-        "resource": {
-          "lib/netstandard2.0/de-DE/FluentMigrator.Abstractions.resources.dll": {
-            "locale": "de-DE"
-          }
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "FluentValidation.DependencyInjectionExtensions/9.0.1": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "9.0.1",
+          "Microsoft.Extensions.Dependencyinjection.Abstractions": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll": {}
+        }
+      },
+      "MediatR/9.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/MediatR.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/MediatR.dll": {}
+        }
+      },
+      "MediatR.Extensions.Microsoft.DependencyInjection/9.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MediatR": "9.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/MediatR.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MediatR.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
@@ -1430,15 +1458,6 @@
           "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll": {}
         }
       },
-      "System.ValueTuple/4.4.0": {
-        "type": "package",
-        "compile": {
-          "ref/netcoreapp2.0/_._": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.0/_._": {}
-        }
-      },
       "System.Xml.ReaderWriter/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1540,40 +1559,78 @@
     }
   },
   "libraries": {
-    "FluentMigrator/3.1.1": {
-      "sha512": "r2vpzpjJZVrIXnnYNbTWj07gFo0cW/rIpQxw09WKUNgQ4KMcLgvWEsOeJ8Df3r4os/C6V9dCMEDFROjQG651wg==",
+    "FluentValidation/9.2.2": {
+      "sha512": "Y1TQrSa82i/WWPpXriEkL7uyUyECw3Uvtq66dZ8VC3pwFa9VqnZmeZaJJpz8deKhJQNDgqwU3BSptKTnyjqzuA==",
       "type": "package",
-      "path": "fluentmigrator/3.1.1",
+      "path": "fluentvalidation/9.2.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "fluentmigrator.3.1.1.nupkg.sha512",
-        "fluentmigrator.nuspec",
-        "lib/net461/FluentMigrator.dll",
-        "lib/net461/FluentMigrator.pdb",
-        "lib/net461/FluentMigrator.xml",
-        "lib/netstandard2.0/FluentMigrator.dll",
-        "lib/netstandard2.0/FluentMigrator.pdb",
-        "lib/netstandard2.0/FluentMigrator.xml"
+        "fluentvalidation.9.2.2.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net461/FluentValidation.dll",
+        "lib/net461/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml"
       ]
     },
-    "FluentMigrator.Abstractions/3.1.1": {
-      "sha512": "46AHNT6Vrx3/cGxQ8p+5C0w7CUJ7ParH9ALFZAseWF774f7d+GKGvB/8U6dzr6tqDH4ZrjuVb0phpKRMOslcQg==",
+    "FluentValidation.AspNetCore/9.0.1": {
+      "sha512": "7DlvStNVZwSAbLC5GyT3nGa8K11hb9R+W6BgnYnSjvnPFGWKpyANwuGTl8HShOInjXJqIJykqHo1UcdemTq/7g==",
       "type": "package",
-      "path": "fluentmigrator.abstractions/3.1.1",
+      "path": "fluentvalidation.aspnetcore/9.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "fluentmigrator.abstractions.3.1.1.nupkg.sha512",
-        "fluentmigrator.abstractions.nuspec",
-        "lib/net461/FluentMigrator.Abstractions.dll",
-        "lib/net461/FluentMigrator.Abstractions.pdb",
-        "lib/net461/FluentMigrator.Abstractions.xml",
-        "lib/net461/de-DE/FluentMigrator.Abstractions.resources.dll",
-        "lib/netstandard2.0/FluentMigrator.Abstractions.dll",
-        "lib/netstandard2.0/FluentMigrator.Abstractions.pdb",
-        "lib/netstandard2.0/FluentMigrator.Abstractions.xml",
-        "lib/netstandard2.0/de-DE/FluentMigrator.Abstractions.resources.dll"
+        "fluentvalidation.aspnetcore.9.0.1.nupkg.sha512",
+        "fluentvalidation.aspnetcore.nuspec",
+        "lib/netcoreapp2.1/FluentValidation.AspNetCore.dll",
+        "lib/netcoreapp2.1/FluentValidation.AspNetCore.xml",
+        "lib/netcoreapp3.1/FluentValidation.AspNetCore.dll",
+        "lib/netcoreapp3.1/FluentValidation.AspNetCore.xml"
+      ]
+    },
+    "FluentValidation.DependencyInjectionExtensions/9.0.1": {
+      "sha512": "h71E7XXjFJZsIs6s7AJz2uF4g2BTmEJk3mTKviVRtXuAUF9yV3B7glZjIpEncV6i4u7caqFixKeVpSBB3jVL9w==",
+      "type": "package",
+      "path": "fluentvalidation.dependencyinjectionextensions/9.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fluentvalidation.dependencyinjectionextensions.9.0.1.nupkg.sha512",
+        "fluentvalidation.dependencyinjectionextensions.nuspec",
+        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll",
+        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.xml"
+      ]
+    },
+    "MediatR/9.0.0": {
+      "sha512": "8b3UYNxegHVYcJMG2zH8wn+YqxLvXG+eMfj0cMCq/jTW72p6O3PCKMkrIv0mqyxdW7bA4gblsocw7n+/9Akg5g==",
+      "type": "package",
+      "path": "mediatr/9.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "gradient_128x128.png",
+        "lib/net461/MediatR.dll",
+        "lib/net461/MediatR.xml",
+        "lib/netstandard2.0/MediatR.dll",
+        "lib/netstandard2.0/MediatR.xml",
+        "lib/netstandard2.1/MediatR.dll",
+        "lib/netstandard2.1/MediatR.xml",
+        "mediatr.9.0.0.nupkg.sha512",
+        "mediatr.nuspec"
+      ]
+    },
+    "MediatR.Extensions.Microsoft.DependencyInjection/9.0.0": {
+      "sha512": "msreY4ogiPdIRWiCQVHQDytIQpsZCLWsixWPZ+Xs86KZrvtuiV8BDHbIT0kBmogynVYWNpspb3caw+86YU8L6w==",
+      "type": "package",
+      "path": "mediatr.extensions.microsoft.dependencyinjection/9.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "gradient_128x128.png",
+        "lib/netstandard2.0/MediatR.Extensions.Microsoft.DependencyInjection.dll",
+        "mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
+        "mediatr.extensions.microsoft.dependencyinjection.nuspec"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
@@ -5537,51 +5594,6 @@
         "system.threading.tasks.extensions.nuspec"
       ]
     },
-    "System.ValueTuple/4.4.0": {
-      "sha512": "BahUww/+mdP4ARCAh2RQhQTg13wYLVrBb9SYVgW8ZlrwjraGCXHGjo0oIiUfZ34LUZkMMR+RAzR7dEY4S1HeQQ==",
-      "type": "package",
-      "path": "system.valuetuple/4.4.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net461/System.ValueTuple.dll",
-        "lib/net461/System.ValueTuple.xml",
-        "lib/net47/System.ValueTuple.dll",
-        "lib/net47/System.ValueTuple.xml",
-        "lib/netcoreapp2.0/_._",
-        "lib/netstandard1.0/System.ValueTuple.dll",
-        "lib/netstandard1.0/System.ValueTuple.xml",
-        "lib/netstandard2.0/_._",
-        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
-        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.xml",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net461/System.ValueTuple.dll",
-        "ref/net461/System.ValueTuple.xml",
-        "ref/net47/System.ValueTuple.dll",
-        "ref/net47/System.ValueTuple.xml",
-        "ref/netcoreapp2.0/_._",
-        "ref/netstandard2.0/_._",
-        "ref/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
-        "ref/portable-net40+sl4+win8+wp8/System.ValueTuple.xml",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.valuetuple.4.4.0.nupkg.sha512",
-        "system.valuetuple.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
     "System.Xml.ReaderWriter/4.3.0": {
       "sha512": "GrprA+Z0RUXaR4N7/eW71j1rgMnEnEVlgii49GZyAjTH7uliMnrOU3HNFBr6fEDBCJCIdlVNq9hHbaDR621XBA==",
       "type": "package",
@@ -5837,7 +5849,10 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "FluentMigrator >= 3.1.1",
+      "FluentValidation >= 9.2.2",
+      "FluentValidation.AspNetCore >= 9.0.1",
+      "MediatR >= 9.0.0",
+      "MediatR.Extensions.Microsoft.DependencyInjection >= 9.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.9",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.1"
     ]
@@ -5881,9 +5896,21 @@
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
-          "FluentMigrator": {
+          "FluentValidation": {
             "target": "Package",
-            "version": "[3.1.1, )"
+            "version": "[9.2.2, )"
+          },
+          "FluentValidation.AspNetCore": {
+            "target": "Package",
+            "version": "[9.0.1, )"
+          },
+          "MediatR": {
+            "target": "Package",
+            "version": "[9.0.0, )"
+          },
+          "MediatR.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "[9.0.0, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",

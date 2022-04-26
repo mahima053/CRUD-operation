@@ -6,7 +6,7 @@ using Employee_RegistrationCRUD.Models;
 
 namespace Employee_RegistrationCRUD.EmployeeData
 {
-    public  interface IEmployeeData
+    public  interface IEmployeeRepository
     {
         List<Employee> GetEmployee();
 

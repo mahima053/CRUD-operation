@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using FluentValidation.AspNetCore;
+using FluentValidation;
 
 namespace Employee_RegistrationCRUD.Models
 {
@@ -26,5 +28,6 @@ namespace Employee_RegistrationCRUD.Models
         public int ContactNumber { get; set; }
         public string City { get; set; }
         public string State { get; set; }
+
     }
 }
