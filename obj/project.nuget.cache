@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KSowm/D1jyKkMfDPR9XijJbldPDdj8AVlsC3pBbTaRfpQrDLlFLEvmYhaT4nlBGqD/47jixlNP+nEoOERhaIKw==",
+  "dgSpecHash": "XSwhL2xgz/xsWcwzDQXCxYMawhAlr6/Pk+IkX1gljlpC0yuwPzjc3fLHlRJQEdadnclrGzhD9X6o9UoHJUeGXQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\thinksysuser\\Desktop\\Employee\\CRUD-operation\\Employee_RegistrationCRUD.csproj",
+  "projectFilePath": "C:\\Users\\thinksysuser\\Desktop\\Employee\\CRUD-operation\\EmployeeRegistrationCRUD.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\thinksysuser\\.nuget\\packages\\fluentvalidation\\9.2.2\\fluentvalidation.9.2.2.nupkg.sha512",
     "C:\\Users\\thinksysuser\\.nuget\\packages\\fluentvalidation.aspnetcore\\9.0.1\\fluentvalidation.aspnetcore.9.0.1.nupkg.sha512",

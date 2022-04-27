@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Employee_RegistrationCRUD.Models;
+using EmployeeRegistrationCRUD.Models;
 using FluentValidation.AspNetCore;
 using FluentValidation;
 
-namespace Employee_RegistrationCRUD.Validators
+namespace EmployeeRegistrationCRUD.Validators
 {
     public class EmployeeValidator : AbstractValidator<Employee>
     {

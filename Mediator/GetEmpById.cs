@@ -3,26 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Employee_RegistrationCRUD.Models;
+using EmployeeRegistrationCRUD.Models;
+using EmployeeRegistrationCRUD.Models;
 using MediatR;
 
-namespace Employee_RegistrationCRUD.Mediator
+namespace EmployeeRegistrationCRUD.Mediator
 {
-    public class GetEmpById
+    public class GetEmpByIdRequest : IRequest<Employee>
     {
-        public class Query : IRequest<Employee>
-        {
+       
             public Guid Id { get; set; }
         }
-        public class QueryHandler : IRequestHandler<Query, Employee>
+        public class GetEmpByIdHandler : IRequestHandler<GetEmpByIdRequest, Employee>
         {
             private readonly EmployeeContext _db;
 
-            public QueryHandler(EmployeeContext db) => _db = db;
-            public async Task<Employee> Handle(Query request, CancellationToken cancellationToken)
+        public GetEmpByIdHandler(EmployeeContext db) => _db = db;
+            public async Task<Employee> Handle(GetEmpByIdRequest request, CancellationToken cancellationToken)
             {
                 return await _db.Employees.FindAsync(request.Id);
             }
-        }
-    }
+        }   
 }

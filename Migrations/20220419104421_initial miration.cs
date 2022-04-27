@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Employee_RegistrationCRUD.Migrations
+namespace EmployeeRegistrationCRUD.Migrations
 {
     public partial class initialmiration : Migration
     {

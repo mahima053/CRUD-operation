@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Employee_RegistrationCRUD
+namespace EmployeeRegistrationCRUD
 {
     public class Program
     {

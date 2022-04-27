@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using FluentValidation.AspNetCore;
 using FluentValidation;
 
-namespace Employee_RegistrationCRUD.Models
+namespace EmployeeRegistrationCRUD.Models
 {
     public class Employee
     {

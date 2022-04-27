@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Employee_RegistrationCRUD.Models;
+using EmployeeRegistrationCRUD.Models;
 
-namespace Employee_RegistrationCRUD.EmployeeData
+namespace EmployeeRegistrationCRUD.EmployeeData
 {
-    public  interface IEmployeeRepository
+    public interface IEmployeeRepository
     {
         List<Employee> GetEmployee();
 
         Employee GetEmployee(Guid Id);
         Employee AddEmployee(Employee employee);
-        void  DeleteEmployee(Employee employee);
+        void DeleteEmployee(Employee employee);
 
         Employee EditEmployee(Employee employee);
 

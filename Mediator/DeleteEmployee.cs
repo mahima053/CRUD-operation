@@ -3,24 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Employee_RegistrationCRUD.Models;
+using EmployeeRegistrationCRUD.Models;
 using MediatR;
 
-namespace Employee_RegistrationCRUD.Mediator
+namespace EmployeeRegistrationCRUD.Mediator
 {
-    public class DeleteEmployee
+    public class DeleteEmployeeRequest : IRequest
     {
-        public class Command : IRequest
-        {
             public Guid Id { get; set; }
-        }
-
-        public class CommandHandler : IRequestHandler<Command, Unit>
+       
+        public class DeleteEmployeeHandler : IRequestHandler<DeleteEmployeeRequest, Unit>
         {
             private readonly EmployeeContext _db;
 
-            public CommandHandler(EmployeeContext db) => _db = db;
-            public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
+            public DeleteEmployeeHandler(EmployeeContext db) => _db = db;
+            public async Task<Unit> Handle(DeleteEmployeeRequest request, CancellationToken cancellationToken)
             {
                 var Employee = await _db.Employees.FindAsync(request.Id);
                 if (Employee == null) return Unit.Value;

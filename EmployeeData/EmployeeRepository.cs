@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Employee_RegistrationCRUD.Models;
+using EmployeeRegistrationCRUD.Models;
 
-
-namespace Employee_RegistrationCRUD.EmployeeData
+namespace EmployeeRegistrationCRUD.EmployeeData
 {
     public class EmployeeRepository : IEmployeeRepository
     {

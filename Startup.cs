@@ -1,6 +1,4 @@
 using System.Reflection;
-using Employee_RegistrationCRUD.EmployeeData;
-using Employee_RegistrationCRUD.Models;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,8 +7,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using FluentValidation.AspNetCore;
+using EmployeeRegistrationCRUD.Models;
+using EmployeeRegistrationCRUD.EmployeeData;
 
-namespace Employee_RegistrationCRUD
+namespace EmployeeRegistrationCRUD
 {
     public class Startup
     {
@@ -36,11 +36,6 @@ namespace Employee_RegistrationCRUD
 
   
         }
-            
-
-
-            
-
             // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
             public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
