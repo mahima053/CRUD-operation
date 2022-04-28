@@ -38,11 +38,7 @@ namespace EmployeeRegistrationCRUD.Mediator
         public async Task<Guid> Handle(UpdateEmployeeRequest request, CancellationToken cancellationToken)
         {
             var Employee = await db.Employees.FindAsync(request.Id);
-        /*  if (Employee == null)
-            {
-                return default;
-            }
-            else */
+    
             {
                 Employee.FirstName = request.FirstName;
                 Employee.Age = request.Age;

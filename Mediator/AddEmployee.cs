@@ -49,11 +49,9 @@ namespace EmployeeRegistrationCRUD.Mediator
                    Gender = request.Gender,
                    State = request.State
                };
-            // await _empRepo.AddEmployee(emp);
-          //emp.Id = Guid.NewGuid();
             _empRepo.AddEmployee(emp);
 
-            return (Guid)emp;
+            return emp.Id;
 
             //await _db.Employees.AddAsync(entity, cancellationToken);
             //await _db.SaveChangesAsync(cancellationToken);
