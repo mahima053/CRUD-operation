@@ -10,8 +10,6 @@ namespace EmployeeRegistrationCRUD.Models
 {
     public class Employee
     {
-
-
         public Guid Id { get; set; }
 
         [JsonPropertyName("First_Name")]

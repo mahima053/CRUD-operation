@@ -21,7 +21,6 @@ namespace EmployeeRegistrationCRUD.Controllers
 
            }*/
         private readonly IMediator _mediator;
-        private readonly IEmployeeRepository _empRepo;
         public EmployeesController(IMediator mediator) => _mediator = mediator;
 
         [HttpGet]

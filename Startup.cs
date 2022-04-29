@@ -9,6 +9,9 @@ using Microsoft.Extensions.Hosting;
 using FluentValidation.AspNetCore;
 using EmployeeRegistrationCRUD.Models;
 using EmployeeRegistrationCRUD.EmployeeData;
+using FluentMigrator.Runner;
+using EmployeeRegistrationCRUD.Migrations;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace EmployeeRegistrationCRUD
 {
@@ -34,6 +37,15 @@ namespace EmployeeRegistrationCRUD
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
+        
+            services.AddFluentMigratorCore()
+                .ConfigureRunner(config =>
+                config.AddSqlServer()
+                .WithGlobalConnectionString("server =CPU-0208\\SQLEXPRESS; database = EmployeeDb; Trusted_Connection = True")
+                .ScanIn(Assembly.GetExecutingAssembly()).For.All())
+                .AddLogging(config => config.AddFluentMigratorConsole()); 
+
+            
   
         }
             // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +66,11 @@ namespace EmployeeRegistrationCRUD
             {
                 endpoints.MapControllers();
             });
+
+            using var scope = app.ApplicationServices.CreateScope();
+            var migrator = scope.ServiceProvider.GetService<IMigrationRunner>();
+            migrator.MigrateUp();
+
         }
     }
 }

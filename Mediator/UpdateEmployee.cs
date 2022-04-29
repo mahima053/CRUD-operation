@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
+using EmployeeRegistrationCRUD.EmployeeData;
 using EmployeeRegistrationCRUD.Models;
 using MediatR;
 
@@ -29,15 +30,17 @@ namespace EmployeeRegistrationCRUD.Mediator
     }
     public class UpdateEmployeeHandler : IRequestHandler<UpdateEmployeeRequest, Guid>
     {
-        private EmployeeContext db;
+        private IEmployeeRepository _empRepo;
 
-        public UpdateEmployeeHandler(EmployeeContext db)
+        public UpdateEmployeeHandler(IEmployeeRepository employeeRepository)
         {
-            this.db = db;
+            _empRepo = employeeRepository;
         }
         public async Task<Guid> Handle(UpdateEmployeeRequest request, CancellationToken cancellationToken)
         {
-            var Employee = await db.Employees.FindAsync(request.Id);
+            //   var Employee = await db.Employees.FindAsync(request.Id);
+
+            var Employee = _empRepo.GetEmployee(request.Id);
     
             {
                 Employee.FirstName = request.FirstName;
@@ -48,7 +51,8 @@ namespace EmployeeRegistrationCRUD.Mediator
                 Employee.LastName = request.LastName;
                 Employee.State = request.State;
 
-                await db.SaveChangesAsync();
+                // await db.SaveChangesAsync();
+                _empRepo.EditEmployee(Employee);
                 return Employee.Id;
             }
         }

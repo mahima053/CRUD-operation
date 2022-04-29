@@ -34,8 +34,8 @@ namespace EmployeeRegistrationCRUD.EmployeeData
             var existingEmployee = _employeeContext.Employees.Find(employee.Id);
             if (existingEmployee != null)
             {
-                existingEmployee.FirstName = employee.FirstName;
-                existingEmployee.LastName = employee.LastName;
+              //  existingEmployee.FirstName = employee.FirstName;
+             //   existingEmployee.LastName = employee.LastName;
                 _employeeContext.Employees.Update(existingEmployee);
                 _employeeContext.SaveChanges();
 

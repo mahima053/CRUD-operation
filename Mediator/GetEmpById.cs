@@ -5,7 +5,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using EmployeeRegistrationCRUD.EmployeeData;
 using EmployeeRegistrationCRUD.Models;
-using EmployeeRegistrationCRUD.Models;
 using MediatR;
 
 namespace EmployeeRegistrationCRUD.Mediator
