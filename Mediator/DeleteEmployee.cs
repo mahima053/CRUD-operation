@@ -31,13 +31,7 @@ namespace EmployeeRegistrationCRUD.Mediator
 
                 return Unit.Value;
 
-              //  var Employee = await _db.Employees.FindAsync(request.Id);
-              //  if (Employee == null) return Unit.Value;
-
-              //  _db.Employees.Remove(Employee);
-             //   await _db.SaveChangesAsync(cancellationToken);
-
-              //  return Unit.Value;
+         
             }
         }
     }

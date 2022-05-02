@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 using EmployeeRegistrationCRUD.EmployeeData;
+using EmployeeRegistrationCRUD.Mediator;
 using EmployeeRegistrationCRUD.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -10,26 +11,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace EmployeeRegistrationCRUD.Mediator
 {
 
-    public class AddEmployeeRequest : IRequest<Guid>
+    public class AddEmployeeRequest  : Employee, IRequest<Guid> 
 
-    {
-        // [BindProperties]
-
-        public Guid Id { get; set; }
-        [JsonPropertyName("First_Name")]
-        public string FirstName { get; set; }
-
-        [JsonPropertyName("Last_Name")]
-        public string LastName { get; set; }
-
-        public int Age { get; set; }
-        public string Gender { get; set; }
-
-
-        [JsonPropertyName("Contact_Number")]
-        public int ContactNumber { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
+    { 
 
     }
 
@@ -57,14 +41,6 @@ namespace EmployeeRegistrationCRUD.Mediator
                 _empRepo.AddEmployee(emp);
 
                 return emp.Id;
-
-                //await _db.Employees.AddAsync(entity, cancellationToken);
-                //await _db.SaveChangesAsync(cancellationToken);
-                //   _employeeContext.Employees.Add(employee);
-                //   _employeeContext.SaveChanges();
-                //   return employee;
-
-
             
         }
     }

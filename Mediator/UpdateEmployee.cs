@@ -10,23 +10,8 @@ using MediatR;
 
 namespace EmployeeRegistrationCRUD.Mediator
 {
-    public class UpdateEmployeeRequest : IRequest<Guid>
+    public class UpdateEmployeeRequest : Employee,IRequest<Guid>
     {
-        public Guid Id { get; set; }
-        [JsonPropertyName("First_Name")]
-        public string FirstName { get; set; }
-
-        [JsonPropertyName("Last_Name")]
-        public string LastName { get; set; }
-
-        public int Age { get; set; }
-        public string Gender { get; set; }
-
-
-        [JsonPropertyName("Contact_Number")]
-        public int ContactNumber { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
     }
     public class UpdateEmployeeHandler : IRequestHandler<UpdateEmployeeRequest, Guid>
     {
@@ -38,7 +23,6 @@ namespace EmployeeRegistrationCRUD.Mediator
         }
         public async Task<Guid> Handle(UpdateEmployeeRequest request, CancellationToken cancellationToken)
         {
-            //   var Employee = await db.Employees.FindAsync(request.Id);
 
             var Employee = _empRepo.GetEmployee(request.Id);
     
@@ -51,7 +35,6 @@ namespace EmployeeRegistrationCRUD.Mediator
                 Employee.LastName = request.LastName;
                 Employee.State = request.State;
 
-                // await db.SaveChangesAsync();
                 _empRepo.EditEmployee(Employee);
                 return Employee.Id;
             }

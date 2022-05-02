@@ -24,7 +24,6 @@ namespace EmployeeRegistrationCRUD.Mediator
 
             public async Task<IEnumerable<Employee>> Handle(GetEmpRequest request, CancellationToken cancellationToken)
             {
-            // return await _db.Employees.ToListAsync(cancellationToken);
             return  _empRepo.GetEmployee();
             }
         }
