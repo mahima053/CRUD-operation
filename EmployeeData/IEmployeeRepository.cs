@@ -8,13 +8,13 @@ namespace EmployeeRegistrationCRUD.EmployeeData
 {
     public interface IEmployeeRepository
     {
-        List<Employee> GetEmployee();
 
-        Employee GetEmployee(Guid Id);
-        Employee AddEmployee(Employee employee);
-        void DeleteEmployee(Employee employee);
+        Task<List<Employee>> GetEmployee();
 
-        Employee EditEmployee(Employee employee);
+        Task<Employee> GetEmployee(Guid Id);
+        Task<Employee> AddEmployee(Employee employee);
+        Task DeleteEmployee(Task<Employee> employee);
 
+        Task<Employee> EditEmployee(Employee employee);
     }
 }

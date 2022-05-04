@@ -13,7 +13,7 @@ namespace EmployeeRegistrationCRUD.Mediator
 
     public class AddEmployeeRequest  : Employee, IRequest<Guid> 
 
-    { 
+    {
 
     }
 
@@ -30,15 +30,15 @@ namespace EmployeeRegistrationCRUD.Mediator
 
                 var emp = new Employee
                 {
-                    FirstName = request.FirstName,
-                    LastName = request.LastName,
+                    First_Name = request.First_Name,
+                    Last_Name = request.Last_Name,
                     Age = request.Age,
                     City = request.City,
-                    ContactNumber = request.ContactNumber,
+                    Contact_Number = request.Contact_Number,
                     Gender = request.Gender,
                     State = request.State
                 };
-                _empRepo.AddEmployee(emp);
+                await _empRepo.AddEmployee(emp);
 
                 return emp.Id;
             

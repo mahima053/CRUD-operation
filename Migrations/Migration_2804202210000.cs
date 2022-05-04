@@ -26,7 +26,8 @@ namespace EmployeeRegistrationCRUD.Migrations
                 .WithColumn("City").AsString().NotNullable()
                 .WithColumn("Gender").AsString().NotNullable()
                 .WithColumn("State").AsString().NotNullable()
-                .WithColumn("EmployeeId").AsGuid().NotNullable().ForeignKey("Employee","Id");
+                .WithColumn("Contact_Number").AsInt32().NotNullable();
+               //.WithColumn("EmployeeId").AsGuid().NotNullable().ForeignKey("Employee","Id");
 
         }
     }

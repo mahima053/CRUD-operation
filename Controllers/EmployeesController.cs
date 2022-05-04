@@ -13,13 +13,6 @@ namespace EmployeeRegistrationCRUD.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        /*  private IEmployeeRepository _employeeData;
-
-         public EmployeesController(IEmployeeRepository employeeData)
-           {
-               _employeeData = employeeData;
-
-           }*/
         private readonly IMediator _mediator;
         public EmployeesController(IMediator mediator) => _mediator = mediator;
 
@@ -32,12 +25,19 @@ namespace EmployeeRegistrationCRUD.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult> CreateEmployee([FromBody] AddEmployeeRequest command)
+        public async Task<ActionResult> CreateEmployee([FromBody] AddEmployeeRequest addEmployeeRequest)
         {
-            var createdEmpId = await _mediator.Send(command);
-            return CreatedAtAction(nameof(GetEmp), new { id = createdEmpId }, null);
-        }
+            try
+            {
+                var createdEmpId = await _mediator.Send(addEmployeeRequest);
+                return CreatedAtAction(nameof(GetEmp), new { id = createdEmpId }, null);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
 
+            }
+        }
 
         [HttpDelete("{Id}")]
 

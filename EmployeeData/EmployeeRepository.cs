@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using EmployeeRegistrationCRUD.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeRegistrationCRUD.EmployeeData
 {
@@ -14,43 +16,47 @@ namespace EmployeeRegistrationCRUD.EmployeeData
             _employeeContext = employeeContext;
 
         }
-        public Employee AddEmployee(Employee employee)
+        public   async Task<Employee> AddEmployee(Employee employee)
         {
-            employee.Id = Guid.NewGuid();
-            _employeeContext.Employees.Add(employee);
-            _employeeContext.SaveChanges();
+           employee.Id = Guid.NewGuid();
+          await  _employeeContext.Employees.AddAsync(employee);
+            await _employeeContext.SaveChangesAsync();
             return employee;
         }
 
-        public void DeleteEmployee(Employee employee)
+       public async Task DeleteEmployee(Task<Employee> employee)
         {
-            _employeeContext.Employees.Remove(employee);
-            _employeeContext.SaveChanges();
+            _employeeContext.Employees.Remove(await employee);
+            await _employeeContext.SaveChangesAsync();
         }
 
 
-        public Employee EditEmployee(Employee employee)
+        public async Task<Employee> EditEmployee(Employee employee)
         {
             var existingEmployee = _employeeContext.Employees.Find(employee.Id);
             if (existingEmployee != null)
             {
-             
+
                 _employeeContext.Employees.Update(existingEmployee);
-                _employeeContext.SaveChanges();
+                await _employeeContext.SaveChangesAsync();
 
             }
-            return employee;
+            return (employee);
         }
 
-        public List<Employee> GetEmployee()
+        public async Task<List<Employee>> GetEmployee()
         {
-            return _employeeContext.Employees.ToList();
+            // return   _employeeContext.Employees.ToList();
+            return await _employeeContext.Employees.ToListAsync();
         }
 
-        public Employee GetEmployee(Guid Id)
+        public async Task<Employee> GetEmployee(Guid Id)
         {
-            var employee = _employeeContext.Employees.Find(Id);
+            var employee =  await _employeeContext.Employees.FindAsync(Id);
             return employee;
+            
         }
+
+       
     }
 }

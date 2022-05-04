@@ -24,19 +24,21 @@ namespace EmployeeRegistrationCRUD.Mediator
         public async Task<Guid> Handle(UpdateEmployeeRequest request, CancellationToken cancellationToken)
         {
 
-            var Employee = _empRepo.GetEmployee(request.Id);
+            var Employee = await _empRepo.GetEmployee(request.Id);
     
             {
-                Employee.FirstName = request.FirstName;
+                Employee.First_Name = request.First_Name;
                 Employee.Age = request.Age;
                 Employee.City = request.City;
-                Employee.ContactNumber = request.ContactNumber;
+                Employee.Contact_Number = request.Contact_Number;
                 Employee.Gender = request.Gender;
-                Employee.LastName = request.LastName;
+                Employee.Last_Name = request.Last_Name;
                 Employee.State = request.State;
 
-                _empRepo.EditEmployee(Employee);
+               await _empRepo.EditEmployee(Employee);
                 return Employee.Id;
+             
+             
             }
         }
     }

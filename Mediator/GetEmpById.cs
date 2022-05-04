@@ -25,7 +25,7 @@ namespace EmployeeRegistrationCRUD.Mediator
             public async Task<Employee> Handle(GetEmpByIdRequest request, CancellationToken cancellationToken)
             {
            
-            return  _empRepo.GetEmployee(request.Id);
+            return  await _empRepo.GetEmployee(request.Id);
             }
         }   
 }

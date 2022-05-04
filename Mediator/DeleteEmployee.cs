@@ -23,10 +23,10 @@ namespace EmployeeRegistrationCRUD.Mediator
             }
             public async Task<Unit> Handle(DeleteEmployeeRequest request, CancellationToken cancellationToken)
             {
-                var employee = _empRepo.GetEmployee(request.Id);
+                var employee =  _empRepo.GetEmployee(request.Id);
                 if(employee != null)
                 {
-                    _empRepo.DeleteEmployee(employee);
+                    await _empRepo.DeleteEmployee(employee);
                 }
 
                 return Unit.Value;

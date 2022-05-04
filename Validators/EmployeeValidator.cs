@@ -12,7 +12,7 @@ namespace EmployeeRegistrationCRUD.Validators
     {
         public EmployeeValidator()
         {
-            _ = RuleFor(x => x.FirstName)
+            _ = RuleFor(x => x.First_Name)
                 .NotEmpty().WithMessage("{PropertyName} should be not empty. NEVER!")
                 .Length(2, 25)
                 .Must(IsValidName).WithMessage("{PropertyName} should be all letters.");
