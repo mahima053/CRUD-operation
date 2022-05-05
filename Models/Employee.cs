@@ -5,6 +5,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using FluentValidation.AspNetCore;
 using FluentValidation;
+using System.ComponentModel.DataAnnotations;
 
 namespace EmployeeRegistrationCRUD.Models
 {
@@ -12,17 +13,17 @@ namespace EmployeeRegistrationCRUD.Models
     {
         public Guid Id { get; set; }
 
-        [JsonPropertyName("First_Name")]
+     //   [JsonPropertyName("First_Name")]
         public string First_Name { get; set; }
 
-        [JsonPropertyName("Last_Name")]
+      //  [JsonPropertyName("Last_Name")]
         public string Last_Name { get; set; }
 
         public int Age { get; set; }
         public string Gender { get; set; }
 
 
-        [JsonPropertyName("Contact_Number")]
+       // [JsonPropertyName("Contact_Number")]
         public int Contact_Number { get; set; }
         public string City { get; set; }
         public string State { get; set; }

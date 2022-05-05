@@ -13,22 +13,20 @@ namespace EmployeeRegistrationCRUD.Migrations
         public override void Down()
         {
             
-            Delete.Table("Employee");
+            Delete.Table("Employees");
         }
 
         public override void Up()
         {
-            Create.Table("Employee")
+            Create.Table("Employees")
                 .WithColumn("Id").AsGuid().NotNullable().PrimaryKey()
-                .WithColumn("First_Name").AsString().NotNullable()
-                .WithColumn("Last_Name").AsString().NotNullable()
-                .WithColumn("Age").AsInt32().NotNullable()
-                .WithColumn("City").AsString().NotNullable()
-                .WithColumn("Gender").AsString().NotNullable()
-                .WithColumn("State").AsString().NotNullable()
-                .WithColumn("Contact_Number").AsInt32().NotNullable();
-               //.WithColumn("EmployeeId").AsGuid().NotNullable().ForeignKey("Employee","Id");
-
+                .WithColumn("First_Name").AsString()
+                .WithColumn("Last_Name").AsString()
+                .WithColumn("Age").AsInt32()
+                .WithColumn("City").AsString()
+                .WithColumn("Gender").AsString()
+                .WithColumn("State").AsString()
+                .WithColumn("Contact_Number").AsInt32();
         }
     }
 }
