@@ -12,10 +12,10 @@ using EmployeeRegistrationCRUD.EmployeeData;
 using FluentMigrator.Runner;
 using EmployeeRegistrationCRUD.Migrations;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-using EmployeeRegistrationCRUD.MIddleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.AspNetCore.Identity;
 
 namespace EmployeeRegistrationCRUD
 {
@@ -40,6 +40,8 @@ namespace EmployeeRegistrationCRUD
             services.AddDbContextPool<EmployeeContext>(options => options.UseSqlServer(Configuration.GetConnectionString("EmployeeContextConnectionString")));
 
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
             
@@ -50,13 +52,11 @@ namespace EmployeeRegistrationCRUD
                 .ScanIn(Assembly.GetExecutingAssembly()).For.All())
                 .AddLogging(config => config.AddFluentMigratorConsole());
 
-            // For Identity  
-         /*   services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders(); */
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<EmployeeContext>();
 
             // Adding Authentication  
-            services.AddAuthentication(options =>
+        /*    services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -75,8 +75,8 @@ namespace EmployeeRegistrationCRUD
                      ValidAudience = Configuration["JWT:ValidAudience"],
                      ValidIssuer = Configuration["JWT:ValidIssuer"],
                      IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
-                 };
-             });
+                 }; 
+             }); */
 
 
         }
@@ -96,7 +96,7 @@ namespace EmployeeRegistrationCRUD
             //
             app.UseAuthentication();
 
-            app.UseMiddleware(typeof(ExceptionHandlingMiddleware));
+           // app.UseMiddleware(typeof(ExceptionHandlingMiddleware));
 
             app.UseEndpoints(endpoints =>
             {

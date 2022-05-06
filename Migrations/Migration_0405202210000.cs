@@ -18,13 +18,15 @@ namespace EmployeeRegistrationCRUD.Migrations
         {
             Create.Table("UserAuthentication")
                 .WithColumn("Id").AsGuid().NotNullable().PrimaryKey()
-                .WithColumn("Email").AsString()
-                .WithColumn("Password").AsString()
-                .WithColumn("ExpiryDate").AsDate()
-                .WithColumn("CreatedOn").AsDate()
-                .WithColumn("CreatedBy").AsString()
-                .WithColumn("UpdatedOn").AsDateTime()
-                .WithColumn("UpdatedBy ").AsString();
+                .WithColumn("Email").AsString().NotNullable()
+                .WithColumn("Password").AsString().NotNullable()
+                .WithColumn("ExpiryDate").AsDate().NotNullable()
+                .WithColumn("CreatedOn").AsDate().NotNullable()
+                .WithColumn("CreatedBy").AsGuid().NotNullable()
+                .WithColumn("UpdatedOn").AsDateTime().NotNullable()
+                .WithColumn("UpdatedBy ").AsGuid().NotNullable()
+                .WithColumn("UserId").AsGuid().NotNullable().ForeignKey("Employees", "Id");
+
         }
     }
 }
