@@ -46,7 +46,7 @@ namespace EmployeeRegistrationCRUD.EmployeeData
 
         public async Task<List<Employee>> GetEmployee()
         {
-            // return   _employeeContext.Employees.ToList();
+           
             return await _employeeContext.Employees.ToListAsync();
         }
 

@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20220419104421_initial miration.cs" />
-    <Compile Remove="Migrations\20220419104421_initial miration.Designer.cs" />
+    <Compile Remove="Employee\Migrations\20220419104421_initial miration.cs" />
+    <Compile Remove="Employee\Migrations\20220419104421_initial miration.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,10 +27,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Password\" />
   </ItemGroup>
 
 

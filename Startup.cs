@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
+using EmployeeRegistrationCRUD.Password.Repository;
 
 namespace EmployeeRegistrationCRUD
 {
@@ -40,7 +41,8 @@ namespace EmployeeRegistrationCRUD
             services.AddDbContextPool<EmployeeContext>(options => options.UseSqlServer(Configuration.GetConnectionString("EmployeeContextConnectionString")));
 
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-            services.AddScoped<IUserRepository, UserRepository>();
+           services.AddScoped<IUserRepo, UserRepo>();
+            //services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
@@ -52,8 +54,8 @@ namespace EmployeeRegistrationCRUD
                 .ScanIn(Assembly.GetExecutingAssembly()).For.All())
                 .AddLogging(config => config.AddFluentMigratorConsole());
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<EmployeeContext>();
+/*          services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<EmployeeContext>(); */
 
             // Adding Authentication  
         /*    services.AddAuthentication(options =>
@@ -93,10 +95,8 @@ namespace EmployeeRegistrationCRUD
             app.UseRouting();
 
             app.UseAuthorization();
-            //
+           
             app.UseAuthentication();
-
-           // app.UseMiddleware(typeof(ExceptionHandlingMiddleware));
 
             app.UseEndpoints(endpoints =>
             {
