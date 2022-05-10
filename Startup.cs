@@ -42,8 +42,6 @@ namespace EmployeeRegistrationCRUD
 
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
            services.AddScoped<IUserRepo, UserRepo>();
-            //services.AddScoped<IUserRepository, UserRepository>();
-
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
             

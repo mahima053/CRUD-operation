@@ -11,12 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace EmployeeRegistrationCRUD.Mediator
 {
 
-    public class AddEmployeeRequest  : Employee, IRequest<Guid> 
-
-    {
-
-    }
-
+    public class AddEmployeeRequest  : Employee, IRequest<Guid> {}
         public class AddEmployeeHandler : IRequestHandler<AddEmployeeRequest, Guid> 
         {
             private readonly IEmployeeRepository _empRepo;

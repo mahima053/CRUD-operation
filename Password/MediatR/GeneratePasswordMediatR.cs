@@ -8,11 +8,7 @@ using MediatR;
 
 namespace EmployeeRegistrationCRUD.Password
 {
-    public class GeneratePasswordMediatR : PasswordModel, IRequest<Guid>
-    {
-
-    }
-
+    public class GeneratePasswordMediatR : PasswordModel, IRequest<Guid> { }
     public class GeneratePasswordHandler : IRequestHandler<GeneratePasswordMediatR, Guid>
     {
 
@@ -27,8 +23,7 @@ namespace EmployeeRegistrationCRUD.Password
                 Email = request.Email,
                 Password = request.Password,
                 User_Id = request.User_Id,
-                Expiry_Date = DateTime.UtcNow.AddHours(24),
-           //   Expiry_Date = Convert.ToDateTime(DateTimeOffset.Now.AddDays(1)),
+                Expiry_Date = DateTime.UtcNow.AddDays(1),
                 Created_On = DateTime.Now,
                 Updated_On = DateTime.Now
 
@@ -37,6 +32,6 @@ namespace EmployeeRegistrationCRUD.Password
             await userRepo.CreateUserPassword(user);
             return user.Id;
 
-                }
+        }
     }
 }

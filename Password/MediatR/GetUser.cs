@@ -18,7 +18,6 @@ namespace EmployeeRegistrationCRUD.Password
             userRepo = userRepository;
         }
 
-
         public async Task<IEnumerable<PasswordModel>> Handle(GetUserRequest request, CancellationToken cancellationToken)
         {
             return await userRepo.GetUser();
