@@ -11,12 +11,11 @@ namespace EmployeeRegistrationCRUD.Mediator
 {
     public class GetEmpByIdRequest : IRequest<Employee>
     {
-       
-            public Guid Id { get; set; }
-        }
+      public Guid Id { get; set; }
+    }
         public class GetEmpByIdHandler : IRequestHandler<GetEmpByIdRequest, Employee>
         {
-            private readonly IEmployeeRepository _empRepo;
+        private readonly IEmployeeRepository _empRepo;
 
         public GetEmpByIdHandler(IEmployeeRepository employeeRepository)
         {

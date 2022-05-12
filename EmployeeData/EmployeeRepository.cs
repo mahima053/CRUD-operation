@@ -18,8 +18,8 @@ namespace EmployeeRegistrationCRUD.EmployeeData
         }
         public   async Task<Employee> AddEmployee(Employee employee)
         {
-           employee.Id = Guid.NewGuid();
-          await  _employeeContext.Employees.AddAsync(employee);
+            employee.Id = Guid.NewGuid();
+            await  _employeeContext.Employees.AddAsync(employee);
             await _employeeContext.SaveChangesAsync();
             return employee;
         }

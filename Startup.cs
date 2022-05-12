@@ -12,6 +12,7 @@ using EmployeeRegistrationCRUD.EmployeeData;
 using FluentMigrator.Runner;
 using EmployeeRegistrationCRUD.Migrations;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using EmployeeRegistrationCRUD.Password.Repository;
 
 namespace EmployeeRegistrationCRUD
 {
@@ -35,6 +36,7 @@ namespace EmployeeRegistrationCRUD
             services.AddDbContextPool<EmployeeContext>(options => options.UseSqlServer(Configuration.GetConnectionString("EmployeeContextConnectionString")));
 
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IUserRepo, UserRepo>();
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
         

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EmployeeRegistrationCRUD.Models;
+using EmployeeRegistrationCRUD.Password;
 using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeRegistrationCRUD.Models
@@ -14,6 +15,7 @@ namespace EmployeeRegistrationCRUD.Models
 
         }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<PasswordModel> passwordModels { get; set; }
     }
 
 }
