@@ -13,6 +13,9 @@ using FluentMigrator.Runner;
 using EmployeeRegistrationCRUD.Migrations;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using EmployeeRegistrationCRUD.Password.Repository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
 
 namespace EmployeeRegistrationCRUD
 {
@@ -45,13 +48,31 @@ namespace EmployeeRegistrationCRUD
                 config.AddSqlServer()
                 .WithGlobalConnectionString("server =CPU-0208\\SQLEXPRESS; database = EmployeeDb; Trusted_Connection = True")
                 .ScanIn(Assembly.GetExecutingAssembly()).For.All())
-                .AddLogging(config => config.AddFluentMigratorConsole()); 
+                .AddLogging(config => config.AddFluentMigratorConsole());
 
-            
-  
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(o =>
+            {
+                var Key = Encoding.UTF8.GetBytes(Configuration["JWT:Key"]);
+                o.SaveToken = true;
+                o.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = Configuration["JWT:Issuer"],
+                    ValidAudience = Configuration["JWT:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Key)
+                };
+            });
+
         }
-            // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-            public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -61,6 +82,7 @@ namespace EmployeeRegistrationCRUD
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

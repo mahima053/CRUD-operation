@@ -12,5 +12,7 @@ namespace EmployeeRegistrationCRUD.Password.Repository
         Task<PasswordModel> GetUser(Guid id);
         Task<PasswordModel> CreateUserPassword(PasswordModel model);
         Task<PasswordModel> Login(LoginModel login);
+
+     //  Task<TokenModel> GenerateToken(LoginModel login);
     }
 }

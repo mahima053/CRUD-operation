@@ -30,7 +30,7 @@ namespace EmployeeRegistrationCRUD.Password
         public async Task<ActionResult> CreatePass([FromBody] GeneratePasswordMediatR generatePasswordMediatR)
         {
             var createPass = await _mediator.Send(generatePasswordMediatR);
-            return CreatedAtAction(nameof(GetUser), new { id = createPass }, null);
+            return CreatedAtAction(nameof(GetUser), new { id = createPass },null);
         }
 
         [HttpPost]
@@ -41,8 +41,8 @@ namespace EmployeeRegistrationCRUD.Password
         {
             try
             {
-                var id = await _mediator.Send(userLoginMediatRRequest);                                
-                return Ok();
+                var id = await _mediator.Send(userLoginMediatRRequest);
+                return Ok(id);
                 
             }
             catch(Exception ex)
