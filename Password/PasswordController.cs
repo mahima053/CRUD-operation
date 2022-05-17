@@ -41,8 +41,8 @@ namespace EmployeeRegistrationCRUD.Password
         {
             try
             {
-                var id = await _mediator.Send(userLoginMediatRRequest);
-                return Ok(id);
+                var token = await _mediator.Send(userLoginMediatRRequest);
+                return Ok(token);
                 
             }
             catch(Exception ex)
