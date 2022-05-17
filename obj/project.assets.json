@@ -3009,19 +3009,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\thinksysuser\\.nuget\\packages\\": {}
+    "C:\\Users\\Lenovo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\thinksysuser\\Desktop\\Employee\\CRUD-operation\\EmployeeRegistrationCRUD.csproj",
+      "projectUniqueName": "F:\\git\\CRUD-operation\\EmployeeRegistrationCRUD.csproj",
       "projectName": "EmployeeRegistrationCRUD",
-      "projectPath": "C:\\Users\\thinksysuser\\Desktop\\Employee\\CRUD-operation\\EmployeeRegistrationCRUD.csproj",
-      "packagesPath": "C:\\Users\\thinksysuser\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\thinksysuser\\Desktop\\Employee\\CRUD-operation\\obj\\",
+      "projectPath": "F:\\git\\CRUD-operation\\EmployeeRegistrationCRUD.csproj",
+      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+      "outputPath": "F:\\git\\CRUD-operation\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\thinksysuser\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3120,7 +3120,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }
