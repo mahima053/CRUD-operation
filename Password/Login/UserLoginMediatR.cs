@@ -7,28 +7,31 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using EmployeeRegistrationCRUD.Password;
+using EmployeeRegistrationCRUD.Password.Login;
 using EmployeeRegistrationCRUD.Password.Repository;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
 namespace EmployeeRegistrationCRUD.Login
 {
-    public class UserLoginMediatRRequest : LoginModel,IRequest<Guid>{}
-    public class UserLoginHandler : IRequestHandler<UserLoginMediatRRequest, Guid>
+    public class UserLoginMediatRRequest : LoginModel,IRequest<Tokens>{}
+    public class UserLoginHandler : IRequestHandler<UserLoginMediatRRequest, Tokens>
     {
         private readonly IUserRepo userRepo;
-        public UserLoginHandler(IUserRepo userRepository)
+        private readonly IConfiguration configuration;
+        public UserLoginHandler(IUserRepo userRepository,IConfiguration config)
         {
             userRepo = userRepository;
+            configuration = config;
         }
-        public async Task<Guid> Handle(UserLoginMediatRRequest request, CancellationToken cancellationToken)
+        public async Task<Tokens> Handle(UserLoginMediatRRequest request, CancellationToken cancellationToken)
         {
             var result = await userRepo.Login(request);
             if (result != null)
             {
-                return result.User_Id;
-             /*   var tokenHandler = new JwtSecurityTokenHandler();
-                var tokenKey = Encoding.UTF8.GetBytes(_employeecontext["JWT:Key"]);
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var tokenKey = Encoding.UTF8.GetBytes(configuration["JWT:Key"]);
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
                     Subject = new ClaimsIdentity(new Claim[]
@@ -39,7 +42,7 @@ namespace EmployeeRegistrationCRUD.Login
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
                 };
                 var token = tokenHandler.CreateToken(tokenDescriptor);
-                return new LoginModel { Token = tokenHandler.WriteToken(token) }; */
+                return new Tokens { Token = tokenHandler.WriteToken(token) }; 
 
             }
             else
@@ -47,21 +50,7 @@ namespace EmployeeRegistrationCRUD.Login
                 throw new NullReferenceException("null");
             }
         }
-
-    /*    private string GenerateToken()
-        {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new[] { new Claim("id", User_Id.ToString()) }),
-                Expires = DateTime.UtcNow.AddMinutes(15),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
-        } */
-
+            
     }
 }
 

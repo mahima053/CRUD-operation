@@ -26,8 +26,6 @@ namespace EmployeeRegistrationCRUD.Password
         public DateTime Updated_On { get; set; }
         public Guid Updated_By { get; set; }
 
-        public string Token { get; set; }
-
 
     }
 }
